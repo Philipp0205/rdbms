@@ -1,0 +1,8 @@
+.jfx-tab-pane .tab-header-background {
+	-fx-background-color: #d8dee9;
+	}
+
+
+.jfx-tab-pane .tab-label {
+	-fx-text-fill: black;
+}

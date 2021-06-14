@@ -2,6 +2,10 @@ package com.databases2.rdbms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+
+import com.databases2.rdbms.controller.LoginController;
+import com.databases2.rdbms.controller.RestaurantApplication;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,22 +14,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 @SpringBootApplication
-public class RdbmsApplication extends Application {
+public class Main extends Application {
+	
+	private static final int WINDOW_WIDTH = 2000;
+	private static final int WINDOW_HEIGHT = 1300;
 
 	public static void main(String[] args) {
-		SpringApplication.run(RdbmsApplication.class, args);
 		launch(args);
 
 	}
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(this.getClass().getClassLoader().getResource("mainwindow.fxml"));
-		
-		Scene scene = new Scene(root, 800, 600);
-		primaryStage.setTitle("Database Project");
-		primaryStage.setScene(scene);
+		RestaurantApplication.setPrimaryStage(primaryStage);
+		new SpringApplicationBuilder(RestaurantApplication.class).run();
 
-		primaryStage.show();
 	}
 }
